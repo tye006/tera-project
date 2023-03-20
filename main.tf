@@ -1,14 +1,14 @@
 #this file consists of code for instances and sg
 provider "aws" {
 region = "ap-south-1"
-access_key = "AKIARSPNELGYCJEVYJ4K"
-secret_key = "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"
+access_key = "AKIA2MNIR6AXL2JMSQXA"
+secret_key = "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"
 }
 
 resource "aws_instance" "one" {
   ami             = "ami-0d81306eddc614a45"
   instance_type   = "t2.micro"
-  key_name        = "rmk8s"
+  key_name        = "kishore"
   vpc_security_group_ids = [aws_security_group.three.id]
   availability_zone = "ap-south-1a"
   user_data       = <<EOF
@@ -17,7 +17,7 @@ sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hai all this is my app created by terraform infrastructurte by raham sir server-1" > /var/www/html/index.html
+echo "hai kishore here" > /var/www/html/index.html
 EOF
   tags = {
     Name = "server-1"
@@ -36,7 +36,7 @@ sudo -i
 yum install httpd -y
 systemctl start httpd
 chkconfig httpd on
-echo "hai all this is my website created by terraform infrastructurte by raham sir server-2" > /var/www/html/index.html
+echo "hai kishore again" > /var/www/html/index.html
 EOF
   tags = {
     Name = "server-2"
@@ -68,11 +68,11 @@ resource "aws_security_group" "three" {
 }
 
 resource "aws_s3_bucket" "four" {
-  bucket = "raham0077552bucketterra"
+  bucket = "kishoresbuck"
 }
 
 resource "aws_iam_user" "five" {
-name = "rahamuser11" 
+name = "bkk006" 
 }
 
 resource "aws_ebs_volume" "six" {
